@@ -1,6 +1,6 @@
 # CSS Lines
 
-### CSS Lines is a set of CSS properties that allow you to connect 2 or more elements with a line. The line ends will always remain anchored to their corresponding elements, adapting fluidly. They are a kind of pseudo-elements.
+### CSS Lines is a set of CSS properties that allow you to connect 2 or more elements with lines. The line ends will always remain anchored to their corresponding elements, adapting fluidly. They are a kind of pseudo-elements.
 
 ![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
 
