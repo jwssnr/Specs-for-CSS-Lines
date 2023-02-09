@@ -16,7 +16,7 @@
  
 # First idea — inspired by CSS animations
 
-![Sketch of a CSS Line, connecting two elements.](docs/v1-2-elements.png)
+![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
 
 ```css
 .a {
@@ -27,7 +27,7 @@
 }
 .b {
   line-name: snowball;
-  line-anchor: 50% 50%;
+  line-anchor: center;
 }
 @line snowball {
   border: 3px solid white;
@@ -36,13 +36,13 @@
 ```
 If we extend this to several elements, it would automatically look like this.
 
-![Like described](docs/v1-4-elements.png)
+![Like described](img/v1-4-elements.png)
 
 ##  More specific
 
 If we want to set lines more specifically, we need to keep the lines apart by name.
 
-![Like described](docs/v1-3-elements.png)
+![Like described](img/v1-3-elements.png)
 
 
 ```css
@@ -75,14 +75,14 @@ If we want to set lines more specifically, we need to keep the lines apart by na
 ## Challenging z-index
 If we add another element with an allready used class, it can beccome challenging with the `line-z`. 
 
-![Like described.](docs/v1-4-elements-messy.png)
+![Like described.](img/v1-4-elements-messy.png)
 > This is beyond my imagination and has to be tested in a simulation. The order of the HTML elements will probably also have to play a role.
 
 
 
 # Second idea: set and fetch lines
 
-![Like described.](docs/v2-3-elements.png)
+![Like described.](img/v2-3-elements.png)
 
 ```css
 .a {
@@ -107,7 +107,7 @@ If we add another element with an allready used class, it can beccome challengin
 
 # Maybe we can go even further
 
-![Like described.](docs/v2-bezier.png)
+![Like described.](img/v2-bezier.png)
 
 ```css
 .a {
@@ -138,4 +138,4 @@ If we add another element with an allready used class, it can beccome challengin
 
 The construction of a line and its endings are done like lines in svg by default.
 
-![As described.](docs/line-anchor.png)
+![As described.](img/line-anchor.png)
