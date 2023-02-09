@@ -81,7 +81,7 @@ If we add another element with an allready used class, it can beccome challengin
 
 
 
-# Second idea: set and fetch lines
+# Second and probably better idea: Set and fetch lines
 
 ![Like described.](img/v2-3-elements.png)
 
@@ -119,7 +119,7 @@ If we add another element with an allready used class, it can beccome challengin
     center, 
     50% calc(100% - 1rem);
   set-line-style: 
-    3px solid black squared cubic-bezier(1,0,0,1), 
+    3px solid black rounded cubic-bezier(1,0,0,1), 
     1px solid white rounded cubic-bezier(.5,0,1,.5);
 }
 .b {
