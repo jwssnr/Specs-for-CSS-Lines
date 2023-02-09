@@ -2,6 +2,7 @@
 
 ### CSS Lines is a set of CSS properties that allow you to connect 2 or more elements with a line. The line ends will always remain anchored to their corresponding elements, adapting fluidly. They are a kind of pseudo-elements.
 
+![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
 
 # Why?
 
@@ -11,12 +12,12 @@
 
 ---
 
-> Below are samples of two approaches to how this might work. I am glad for co-thinkers. Have I forgotten anything? Is there something that can't work?
+> Below are samples of two approaches to how this might work. I am glad for co-thinkers. Have I forgotten anything? Is there something that can’t work and needs more properties or so?
 
  
 # First idea — inspired by CSS animations
 
-![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
+As in the heading image ↑.
 
 ```css
 .a {
