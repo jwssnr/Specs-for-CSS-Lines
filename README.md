@@ -139,4 +139,4 @@ If we add another element with an allready used class, it can beccome challengin
 
 The construction of a line and its endings are done like lines in svg by default.
 
-![As described.](img/line-anchor.png)
+![As described.](img/line-anchor2.png)
