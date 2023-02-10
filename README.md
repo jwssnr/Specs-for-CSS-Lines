@@ -106,7 +106,7 @@ To get the result of this image, the usage would look like this:
 }
 ```
 
-#  Different lines
+## Different lines
 
 If we have multiple elements and lines, we can stack the values of the properties as we know it from other CSS properties.
 
@@ -132,7 +132,7 @@ If we have multiple elements and lines, we can stack the values of the propertie
   fetch-line-z: -1, 1;
 }
 ```
-# Maybe we can go even further
+## Maybe we can go even further
 ![Like described.](img/v2-bezier.png)
 ```css
 .a {
@@ -159,7 +159,7 @@ If we have multiple elements and lines, we can stack the values of the propertie
 }
 ```
 
-# Line anchor positioning in general
+## Line anchor positioning in general
 The construction of a line and its endings are done like lines in svg by default.
 
 ![As described.](img/line-anchor2.png)
