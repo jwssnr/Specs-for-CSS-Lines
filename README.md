@@ -5,7 +5,10 @@
 
 # Why?
 
-1. Elements that semantically belong together and usually follow each other in the markup can be visually separated in this way. This is helpful if, for example, several modals are to be opened. Or when text passages with margin notes or footnotes are to be visually connected. Or when popups in texts should not overlay the immediately adjacent text. Or when tabular content is to be visually broken up. Or for organizational charts and simple infographics that would otherwise require SVG.
+1. Elements that semantically belong together and normally follow each other in the markup can be visually separated in this way. 
+2. Multiple modals can be opened without losing the visual reference.
+3. Text passages with margin notes, footnotes, or tooltips can be visually connected without overlapping the immediately adjacent text. 
+4. Tabular content or lists can be broken up visually. This makes simple organizational charts possible..
 
 2. For purely decorative purposes. Face it! 😁
 
