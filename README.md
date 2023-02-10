@@ -74,9 +74,10 @@ To get the result of this image, the usage would look like this:
   fetch-line-anchor: center;
 }
 ```
-##  Multiple Lines from one Referenze
+##  Multiple lines from one referenze
 
 ![Like described.](img/v2-stern.png)
+
 ```css
 .a {
   set-line-name: ab;
@@ -90,8 +91,10 @@ To get the result of this image, the usage would look like this:
 }
 ```
 
-##  Different Lines and Elements
+##  Different lines
+
 If we have multiple elements and lines, we can stack the values of the properties as we know it from other CSS properties.
+
 ![Like described](img/v2-3-elements.png)
 
 ```css
