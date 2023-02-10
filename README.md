@@ -13,9 +13,7 @@
 **Turn a nested list into an Organigram.**
 
 ```html
-
 <h1>Some Cantons, cities, quarters</h1>
-
 <ul>
   <li>Graubünden
     <ul>
@@ -51,11 +49,28 @@
 ```
   ![Like described](img/illu-1-nestedlist.png)
 
----
+# Example 2
 
-Now some illustrations only from the point of view of CSS – that is, without any meaning.
+**Footnotes oder footnote like content (tooltips, abbreviation explanations)**
+
+```html
+<article>
+  <p>… ugedon Klarinett rëschten Wand d’Kàchen d’Lëtzebuerger wa Gaart Fletschen déi Völkerbond <a href="#a" title="Read footnote">Gart no vun prächteg welle.</a> Eise klinzecht en as Biereg et rëschten sëtzen gewëss Mamm dem hu sou <a href="#b" title="Read footnote">Halm d’Bëscher gemaacht.</p>
+  <p>…</p>
+  <footer>
+    <h3>Footnotes</h3>
+    <p id="a">Spilt As iwer ze alles d’Hierz an uechter Op am vu aus zënne frou méi. Alle méngem bléit d’Mier engem schnéiwäiss dan no.</p>
+    <p id="b">Bléit Hämmel heescht no wuel fest Benn d’Vioule riede Biereg d’Liewen zënter aus schaddreg hier Haus.</p>
+  </footer>
+</article>
+```
+
+![As described.](img/v2-footnotes.png)
+
 
 # Usage — Set and fetch
+
+Some illustrations only from the point of view of CSS – that is, without any meaning.
 
 ![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
 
@@ -91,7 +106,7 @@ To get the result of this image, the usage would look like this:
 }
 ```
 
-##  Different lines
+#  Different lines
 
 If we have multiple elements and lines, we can stack the values of the properties as we know it from other CSS properties.
 
