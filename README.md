@@ -44,7 +44,7 @@
         </ul>
       </li>
       <li>Rorschach</li>
-      <li>Atstätten</li>
+      <li>Altstätten</li>
       <li>Unterwasser</li>
     </ul>
   </li>
@@ -71,7 +71,7 @@
 ![As described.](img/v2-footnotes.png)
 
 
-# Usage — Set and fetch
+# Usage — Set and join
 
 Some illustrations only from the point of view of CSS – that is, without any meaning.
 
@@ -81,15 +81,15 @@ To get the result of this image, the usage would look like this:
 
 ```css
 .a {
-  set-line-name: ab;
-  set-line-anchor: calc(100% - 1rem) calc(100% - 1rem);
-  set-line-z: -1;
-  set-line-style: 3px solid white rounded;
+  set-lineanchor-name: a;
+  set-lineanchor-position: calc(100% - 1rem) calc(100% - 1rem);
+  set-lineanchor-z: -1;
+  set-linestyle: 3px solid white rounded;
 }
 .b {
-  fetch-line-name: ab;
-  fetch-line-z: 1; /* default */
-  fetch-line-anchor: center;
+  join-lineanchor-name: a;
+  join-lineanchor-position: center;
+  join-lineanchor-z: 1; /* default */
 }
 ```
 ##  Multiple lines from one referenze
@@ -98,14 +98,14 @@ To get the result of this image, the usage would look like this:
 
 ```css
 .a {
-  set-line-name: ab;
-  set-line-anchor: calc(100% - 1rem) 50%;
-  set-line-z: -1;
-  set-line-style: 3px solid white rounded;
+  set-lineanchor-name: a;
+  set-lineanchor-position: calc(100% - 1rem) 50%;
+  set-lineanchor-z: -1;
+  set-linestyle: 3px solid white rounded;
 }
 .b {
-  fetch-line-name: ab;
-  fetch-line-anchor: 1rem 1rem;
+  join-lineanchor-name: a;
+  join-lineanchor-position: 1rem 1rem;
 }
 ```
 
@@ -117,46 +117,47 @@ If we have multiple elements and lines, we can stack the values of the propertie
 
 ```css
 .a {
-  set-line-name: afront, aback;
-  set-line-anchor: calc(100% - 1rem) 1rem, calc(100% - 1rem) 1rem;
-  set-line-z: 1, -1;
-  set-line-style: 3px solid magenta squared, 3px solid white rounded;
+  set-lineanchor-name: afront, aback;
+  set-lineanchor-position: calc(100% - 1rem) 1rem, calc(100% - 1rem) 1rem;
+  set-lineanchor-z: 1, -1;
+  set-linestyle: 3px solid magenta squared, 3px solid white rounded;
 }
 .b {
-  fetch-line-name: aback;
-  fetch-line-anchor: 1rem 1rem;
-  set-line-style: 1px solid white rounded;
-  set-line-name: bfront;
-  set-line-anchor: center;
+  set-lineanchor-name: bfront;
+  set-lineanchor-position: center;
+  set-linestyle: 1px solid white rounded;
+
+  join-lineanchor-name: aback;
+  join-lineanchor-position: 1rem 1rem;
 }
 .c {
-  fetch-line-name: afront, bfront;
-  fetch-line-anchor: 1rem 1rem, center;
-  fetch-line-z: -1, 1;
+  join-lineanchor-name: afront, bfront;
+  join-lineanchor-position: 1rem 1rem, center;
+  join-lineanchor-z: -1, 1;
 }
 ```
 ## Maybe we can go even further
 ![Like described.](img/v2-bezier.png)
 ```css
 .a {
-  set-line-name: 
+  set-lineanchor-name: 
     a, 
     b;
-  set-line-anchor: 
+  set-lineanchor-position: 
     center, 
     50% calc(100% - 1rem);
-  set-line-style: 
+  set-linestyle: 
     3px solid black rounded cubic-bezier(1,0,0,1), 
     1px solid white rounded cubic-bezier(.5,0,1,.5);
 }
 .b {
-  fetch-line-name: 
+  fetch-lineanchor-name: 
     a, 
     b;
-  fetch-line-anchor: 
+  fetch-lineanchor-position: 
     center, 
     50% calc(100% - 1rem);
-  fetch-line-style: 
+  fetch-linestyle: 
     3px solid magenta, 
     3px solid white;
 }
