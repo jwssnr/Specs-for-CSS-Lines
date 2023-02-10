@@ -2,88 +2,97 @@
 
 ### CSS Lines is a set of CSS properties that allow you to connect 2 or more elements with lines. The line ends will always remain anchored to their corresponding elements, adapting fluidly. They are a kind of pseudo-elements.
 
-![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
 
 # Why?
 
-1. Elements that belong together semantically and follow each other structurally can be separated visually in this way. This is helpful if, for example, several modals have to be opened. Or when text passages are to be visually linked with margin notes or footnotes. Or when popups in texts should not overlay the immediately nearby text. Or for visually breaking up tabular content. Or for org charts and simple infographics that would otherwise require SVG.
+1. Elements that semantically belong together and usually follow each other in the markup can be visually separated in this way. This is helpful if, for example, several modals are to be opened. Or when text passages with margin notes or footnotes are to be visually connected. Or when popups in texts should not overlay the immediately adjacent text. Or when tabular content is to be visually broken up. Or for organizational charts and simple infographics that would otherwise require SVG.
 
 2. For purely decorative purposes. Face it! 😁
 
+# Example 1
+**Turn a nested list into an Organigram.**
+
+```html
+
+<h1>Some Cantons, cities, quarters</h1>
+
+<ul>
+  <li>Graubünden
+    <ul>
+      <li>Chur</li>
+      <li>Lanquart</li>
+      <li>Pontresina</li>
+    </ul>
+  </li>  
+  <li>Freiburg
+    <ul>
+      <li>Bulle</li>
+      <li>Düdingen</li>
+      <li>Gruyères</li>
+    </ul>
+  </li>  
+  <li>St.Gallen
+    <ul>
+      <li>St.Gallen
+        <ul>
+          <li>St.Georgen</li>
+          <li>Notkersegg</li>
+          <li>Bruggen</li>
+          <li>Riethüsli</li>
+          <li>Rotmonten</li>
+        </ul>
+      </li>
+      <li>Rorschach</li>
+      <li>Atstätten</li>
+      <li>Unterwasser</li>
+    </ul>
+  </li>
+</ul>
+```
+  ![Like described](img/illu-1-nestedlist.png)
+
 ---
 
-> Below are samples of two approaches to how this might work. I am glad for co-thinkers. Have I forgotten anything? Is there something that can’t work and needs more properties or so?
+Now some illustrations only from the point of view of CSS – that is, without any meaning.
 
- 
-# First idea — inspired by CSS animations
+# Usage — Set and fetch
 
-As in the heading image ↑.
+![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
+
+To get the result of this image, the usage would look like this:
 
 ```css
 .a {
-  line-name: snowball;
-  line-anchor: calc(100% - 1rem) calc(100% - 1rem);
-  line-z: -1;
-  opacity: 0.8;
+  set-line-name: ab;
+  set-line-anchor: calc(100% - 1rem) calc(100% - 1rem);
+  set-line-z: -1;
+  set-line-style: 3px solid white rounded;
 }
 .b {
-  line-name: snowball;
-  line-anchor: center;
-}
-@line snowball {
-  border: 3px solid white;
-  line-ending: rounded;
+  fetch-line-name: ab;
+  fetch-line-z: 1; /* default */
+  fetch-line-anchor: center;
 }
 ```
-If we extend this to several elements, it would automatically look like this.
+##  Multiple Lines from one Referenze
 
-![Like described](img/v1-4-elements.png)
-
-##  More specific
-
-If we want to set lines more specifically, we need to keep the lines apart by name.
-
-![Like described](img/v1-3-elements.png)
-
-
+![Like described.](img/v2-stern.png)
 ```css
-
 .a {
-  line-name:   snowball, sky;
-  line-anchor: calc(100% - 1rem) calc(100% - 1rem), calc(100% - 1rem) calc(100% - 1rem);
-  line-z:      -1, 1;
+  set-line-name: ab;
+  set-line-anchor: calc(100% - 1rem) 50%;
+  set-line-z: -1;
+  set-line-style: 3px solid white rounded;
 }
 .b {
-  line-name:   snowball, lemon;
-  line-anchor: 1rem 1rem, 1rem calc(100% - 1rem);
-}
-.c {
-  line-name:   lemon, sky;
-  line-anchor: 1rem 1rem, 1rem 1rem;
-  line-z:      -1, -1;
-}
-
-@line snowball, lemon {
-  border: 3px solid white;
-  line-ending: rounded;
-}
-@line sky {
-  border: 3px solid cyan;
-  line-ending: rounded;
+  fetch-line-name: ab;
+  fetch-line-anchor: 1rem 1rem;
 }
 ```
 
-## Challenging z-index
-If we add another element with an allready used class, it can beccome challenging with the `line-z`. 
-
-![Like described.](img/v1-4-elements-messy.png)
-> This is beyond my imagination and has to be tested in a simulation. The order of the HTML elements will probably also have to play a role.
-
-
-
-# Second and probably better idea: Set and fetch lines
-
-![Like described.](img/v2-3-elements.png)
+##  Different Lines and Elements
+If we have multiple elements and lines, we can stack the values of the properties as we know it from other CSS properties.
+![Like described](img/v2-3-elements.png)
 
 ```css
 .a {
@@ -105,11 +114,8 @@ If we add another element with an allready used class, it can beccome challengin
   fetch-line-z: -1, 1;
 }
 ```
-
 # Maybe we can go even further
-
 ![Like described.](img/v2-bezier.png)
-
 ```css
 .a {
   set-line-name: 
@@ -136,7 +142,6 @@ If we add another element with an allready used class, it can beccome challengin
 ```
 
 # Line anchor positioning in general
-
 The construction of a line and its endings are done like lines in svg by default.
 
 ![As described.](img/line-anchor2.png)
