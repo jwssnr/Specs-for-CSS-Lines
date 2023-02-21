@@ -74,7 +74,7 @@
 # Usage V1 – New Pseudo Elements
 
 ## Via href
-![Sketch of a CSS Line, connecting two elements.](img/v3-1.png)
+![Like described.](img/v3-1.png)
 
 To get the result of this image, the usage would look like this:
 ```html
@@ -96,7 +96,7 @@ a::anchor {
 }
 ```
 ## Via Class
-![Sketch of a CSS Line, connecting two elements.](img/v3-3.png)
+![Like described.](img/v3-3.png)
 
 To get the result of this image, the usage would look like this:
 ```html
@@ -177,10 +177,57 @@ h1::anchor {
 The construction of a line and its endings are done like lines in svg by default.
 
 
+
 ![As described.](img/line-anchor2.png)
 
 The positioning of the anchors would happen on the same point.
 
+
+# Usage V2 – Draft of CSS Anchor Positioning
+→ [drafts.csswg.org](https://drafts.csswg.org/css-anchor-position-1/)
+
+Based on this and with the same new pseudo element `::line` like above it could work like this:
+
+![Like described.](img/v3-canary.png)
+```html
+<div class="a"></div>
+<div class="b"></div>
+```
+```css
+.a {
+  anchor-name: --a
+}
+.b {
+  anchor-name: --b
+}
+.b::line {
+  border: 3px solid white;
+  position: absolute;
+  start-x: calc( anchor(--a right) + 2rem );
+  start-y: calc( anchor(--a bottom) + 2rem );
+  end-x: anchor(--b center);
+  end-y: anchor(--b center);
+```
+While this already works with block elements in a similar way in Chrome Canary’s with the flag «Experimental Web Platform features» enabled — here is a [sample on code pen](https://codepen.io/jwssnr/pen/abadeMZ) — it would need a slightly different way for line elements («2 corners only»).
+
+The code above is the most obvious approximation. But since it is absurd to be able to set two start properties to different anchors, another solution is needed. Maybe like this:
+
+```css
+.a {
+  anchor-name: a
+}
+.b {
+  anchor-name: b
+}
+.b::line {
+  border: 3px solid white;
+  position: absolute;
+  start-anchor: a( calc(100% - 1rem), 50% );
+  end-anchor: a(center);
+```
+
+However, a minor drawback is that this becomes difficult with simple user-generated content, such as Markdown
+becomes difficult.
 
 # Thanks
 
