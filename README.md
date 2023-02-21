@@ -71,99 +71,106 @@
 ![As described.](img/v2-footnotes.png)
 
 
-# Usage — Set and join
+# Usage V1 – New Pseudo Elements
 
-Some illustrations only from the point of view of CSS – that is, without any meaning.
-
-![Sketch of a CSS Line, connecting two elements.](img/v1-2-elements.png)
+## Via href
+![Sketch of a CSS Line, connecting two elements.](img/v3-1.png)
 
 To get the result of this image, the usage would look like this:
-
+```html
+<a href="#b">A</a>
+<p id="b">B</p>
+```
 ```css
-.a {
-  set-lineanchor-name: a;
-  set-lineanchor-position: calc(100% - 1rem) calc(100% - 1rem);
-  set-lineanchor-z: -1;
-  set-linestyle: 3px solid white rounded;
+a::line {
+  connection: attr(href);
+  border: 3px solid white;
 }
-.b {
-  join-lineanchor-name: a;
-  join-lineanchor-position: center;
-  join-lineanchor-z: 1; /* default */
+a::anchor {
+  right: 1rem;
+  bottom: 1rem;
+}
+#b::anchor {
+  left: 1rem;
+  top: 1rem;
 }
 ```
-##  Multiple lines from one referenze
+## Via Class
+![Sketch of a CSS Line, connecting two elements.](img/v3-3.png)
 
-![Like described.](img/v2-stern.png)
-
+To get the result of this image, the usage would look like this:
+```html
+<div class="a">A</div>
+<div class="b">B</div>
+```
 ```css
-.a {
-  set-lineanchor-name: a;
-  set-lineanchor-position: calc(100% - 1rem) 50%;
-  set-lineanchor-z: -1;
-  set-linestyle: 3px solid white rounded;
+.a::line {
+  connection: ".b";
+  border: 3px solid white;
 }
-.b {
-  join-lineanchor-name: a;
-  join-lineanchor-position: 1rem 1rem;
+.a::anchor {
+  right: 1rem;
+  bottom: 1rem;
+}
+.b::anchor {
+  left: 1rem;
+  top: 1rem;
 }
 ```
 
-## Different lines
+##  Via Scope
 
-If we have multiple elements and lines, we can stack the values of the properties as we know it from other CSS properties.
-
-![Like described](img/v2-3-elements.png)
-
-```css
-.a {
-  set-lineanchor-name: afront, aback;
-  set-lineanchor-position: calc(100% - 1rem) 1rem, calc(100% - 1rem) 1rem;
-  set-lineanchor-z: 1, -1;
-  set-linestyle: 3px solid magenta squared, 3px solid white rounded;
+![Like described.](img/v3-2.png)
+```html
+<h1>Blah</h1>
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+```scss
+h1::line {
+  line-to: "& + ul li";
+  border: 3px solid white;
 }
-.b {
-  set-lineanchor-name: bfront;
-  set-lineanchor-position: center;
-  set-linestyle: 1px solid white rounded;
-
-  join-lineanchor-name: aback;
-  join-lineanchor-position: 1rem 1rem;
-}
-.c {
-  join-lineanchor-name: afront, bfront;
-  join-lineanchor-position: 1rem 1rem, center;
-  join-lineanchor-z: -1, 1;
+h1::anchor {
+  top: 50%;
+  right: 1rem;
+  & + ul li::anchor {
+    top: 1rem;
+    left: 1rem;
+  }
 }
 ```
+
+
 ## Maybe we can go even further
-![Like described.](img/v2-bezier.png)
+![Like described.](img/v3-4.png)
+
+```html
+<div class="a">A</div>
+<div class="b">B</div>
+```
 ```css
-.a {
-  set-lineanchor-name: 
-    a, 
-    b;
-  set-lineanchor-position: 
-    center, 
-    50% calc(100% - 1rem);
-  set-linestyle: 
-    3px solid black rounded cubic-bezier(1,0,0,1), 
-    1px solid white rounded cubic-bezier(.5,0,1,.5);
+.a::line {
+  connection: ".b";
+  border: 3px solid white cubic-bezier(.5,0,1,.5);
 }
-.b {
-  fetch-lineanchor-name: 
-    a, 
-    b;
-  fetch-lineanchor-position: 
-    center, 
-    50% calc(100% - 1rem);
-  fetch-linestyle: 
-    3px solid magenta, 
-    3px solid white;
+.a::anchor,
+.b::anchor {
+  left: 50%;
+  bottom: 1rem;
 }
 ```
+
+
 
 ## Line anchor positioning in general
 The construction of a line and its endings are done like lines in svg by default.
 
 ![As described.](img/line-anchor2.png)
+
+# Thanks
+
+After publishing my spontaneous idea, I had some very valuable conversations with [@db@typo.social](https://typo.social/@db) and [rasteiner@hostux.social](https://hostux.social/@rasteiner). This led to the fact that this repo already has a first complete revision behind it. Many thanks for that.
