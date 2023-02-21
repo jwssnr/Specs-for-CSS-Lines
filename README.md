@@ -162,6 +162,13 @@ h1::anchor {
   left: 50%;
   bottom: 1rem;
 }
+.b::anchor {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: white;
+}
 ```
 
 
@@ -169,7 +176,11 @@ h1::anchor {
 ## Line anchor positioning in general
 The construction of a line and its endings are done like lines in svg by default.
 
+
 ![As described.](img/line-anchor2.png)
+
+The positioning of the anchors would happen on the same point.
+
 
 # Thanks
 
