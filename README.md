@@ -226,8 +226,9 @@ The code above is the most obvious approximation. But since it is absurd to be a
   end-anchor: a(center);
 ```
 
-However, a minor drawback is that this becomes difficult with simple user-generated content, such as Markdown
-becomes difficult.
+## Drawback
+One drawback, however, is that this becomes difficult with simple user-generated content, such as Markdown. The other is that the whole thing is not based on semantic relations.
+
 
 # Thanks
 
